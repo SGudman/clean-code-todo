@@ -1,5 +1,5 @@
 const taskInput = document.getElementById("new-task");
-const addButton = document.getElementsByTagName("button")[0];
+const addButton = document.getElementById("add-task");
 const incompleteTaskList = document.getElementById("incompleteTasks");
 const completedTaskList = document.getElementById("completed-tasks");
 
@@ -79,16 +79,16 @@ const toggleTask = function () {
   }
 };
 
-addButton.onclick = addTask;
+addButton.addEventListener("click", addTask);
 
 const bindTaskEvents = function (taskListItem) {
   const checkBox = taskListItem.querySelector("input[type=checkbox]");
   const editButton = taskListItem.querySelector("button.edit");
   const deleteButton = taskListItem.querySelector("button.delete");
 
-  editButton.onclick = editTask;
-  deleteButton.onclick = deleteTask;
-  checkBox.onchange = toggleTask;
+  editButton.addEventListener("click", editTask);
+  deleteButton.addEventListener("click", deleteTask);
+  checkBox.addEventListener("change", toggleTask);
 };
 
 const taskItems = document.querySelectorAll(
